@@ -1,0 +1,8 @@
+<div *ngIf="videos">
+  Videos
+  <ul>
+      <app-video-listing *ngFor="let video of videos" [snippet]="video"></app-video-listing>
+  </ul>
+  <button mat-raised-button *ngIf="tokenIndex >= 0" (click)="previousPage()">Previous Page</button>
+  <button mat-raised-button color="warn" (click)="nextPage()">Next Page</button>
+</div>

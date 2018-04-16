@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { VideoListingComponent } from './video-listing/video-listing.component';
+import { VideoContainerComponent } from './video-container/video-container.component';
+import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.component';
+
+import { MatButtonModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VideoContainerComponent,
+    VideoListingComponent,
+    VideoThumbnailComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ],
 })
 export class AppModule { }
