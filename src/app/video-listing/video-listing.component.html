@@ -1,9 +1,12 @@
-<div>
-  <app-video-thumbnail [data]="snippet.thumbnails.default"></app-video-thumbnail>
+<div id="container">
+  <div id="image">
+    <app-video-thumbnail [data]="snippet.thumbnails.default"></app-video-thumbnail>
+  </div>
+  <div id="textContainer">
+    <p>{{snippet.title}}</p>
+    <p>{{snippet.description.length > 150 ? (snippet.description | slice:0:150) + '..' : snippet.description}}</p>
+    <p>{{snippet.publishedAt | date}}</p>
+  </div>
 </div>
-<div>
-  <p>{{snippet.title}}</p>
-  <p>{{snippet.description.length > 150 ? (snippet.description | slice:0:150) + '..' : snippet.description}}</p>
-  <p>{{snippet.publishedAt | date}}</p>
-</div>
+<mat-divider></mat-divider>
 

@@ -1,5 +1,5 @@
 <div *ngIf="videos">
-  Videos
+  <mat-divider></mat-divider>
   <ul>
       <app-video-listing *ngFor="let video of videos" [snippet]="video"></app-video-listing>
   </ul>

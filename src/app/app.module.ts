@@ -9,6 +9,7 @@ import { VideoThumbnailComponent } from './video-thumbnail/video-thumbnail.compo
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

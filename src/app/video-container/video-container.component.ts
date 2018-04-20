@@ -30,6 +30,7 @@ export class VideoContainerComponent implements OnInit {
 
   // TODO change to getVideoData and move getVideoData (current) to a service
   processVideoData() {
+
     // TODO: Change to import service and name method getVideoData
     this.getVideoData().subscribe(
         data => {
