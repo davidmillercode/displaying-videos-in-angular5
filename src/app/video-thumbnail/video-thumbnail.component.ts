@@ -9,8 +9,4 @@ export class VideoThumbnailComponent implements OnInit {
   @Input() data;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
