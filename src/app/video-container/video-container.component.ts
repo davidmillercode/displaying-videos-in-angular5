@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; // move to service
-import { Observable } from 'rxjs/Observable'; // move to service
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-video-container',
@@ -21,17 +21,13 @@ export class VideoContainerComponent implements OnInit {
     this.processVideoData();
   }
 
-  // TODO: Move to service
   getVideoData() {
     const tokenQueryParam = this.tokenIndex >= 0 ? `&pageToken=${this.tokens[this.tokenIndex]}` : '';
     const urlToGet = this.tokenIndex >= 0 ? `${this.apiUrl}${tokenQueryParam}` : this.apiUrl;
     return this.http.get(urlToGet);
   }
 
-  // TODO change to getVideoData and move getVideoData (current) to a service
   processVideoData() {
-
-    // TODO: Change to import service and name method getVideoData
     this.getVideoData().subscribe(
         data => {
           const noNextToken = data.nextPageToken === undefined;
