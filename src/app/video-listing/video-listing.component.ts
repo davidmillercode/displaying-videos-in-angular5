@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { VideoListing } from '../shared/models/video-listing.model';
 
 @Component({
   selector: 'app-video-listing',
