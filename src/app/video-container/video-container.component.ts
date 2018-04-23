@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-video-container',
@@ -11,24 +12,17 @@ export class VideoContainerComponent implements OnInit {
   public videos;
   private tokens: Array<string> = [];
   private tokenIndex: number = -1;
-  private apiUrl: string = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCbn1OgGei-DV7aSRo_HaAiw&key=AIzaSyA8OHCyYSR7aFsJXsna7TumltQ0v56rUWU&maxResults=10';
   private endOfResults: boolean = false;
 
-  constructor(private http:HttpClient) {
-  }
+  constructor(private httpService: HttpService) {}
 
   ngOnInit() {
     this.processVideoData();
   }
 
-  getVideoData() {
-    const tokenQueryParam = this.tokenIndex >= 0 ? `&pageToken=${this.tokens[this.tokenIndex]}` : '';
-    const urlToGet = this.tokenIndex >= 0 ? `${this.apiUrl}${tokenQueryParam}` : this.apiUrl;
-    return this.http.get(urlToGet);
-  }
-
   processVideoData() {
-    this.getVideoData().subscribe(
+    const tokenQueryParam = this.tokenIndex >= 0 ? `&pageToken=${this.tokens[this.tokenIndex]}` : '';
+    this.httpService.getVideoData(tokenQueryParam).subscribe(
         data => {
           const noNextToken = data.nextPageToken === undefined;
           // Update this.videos with newly formatted data
